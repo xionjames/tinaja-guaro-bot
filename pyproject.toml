@@ -1,0 +1,35 @@
+[project]
+name = "tinaja-guaro-bot"
+version = "0.1.0"
+description = "Tinaja Guaro Bot, a Discord bot built on tinaja-bot-base"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "tinaja-bot-base",
+]
+
+[tool.uv.sources]
+tinaja-bot-base = { git = "https://github.com/xionjames/tinaja-bot-base", rev = "main" }
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.10",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+# import sorting, pyupgrade and bugbear on top of the defaults
+extend-select = ["I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "single"

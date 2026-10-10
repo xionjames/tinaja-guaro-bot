@@ -1,0 +1,20 @@
+# Settings for Tinaja Guaro Bot. The token is not here: put DISCORD_BOT_TOKEN in .env (see env.sample).
+name = "Tinaja Guaro Bot"
+prefix = "!!"
+cogs_dir = "cogs"           # every commands.Cog class in this folder is loaded
+context_file = "CONTEXT.md" # the glossary, answered by !!glossary [term]
+
+[intents]
+message_content = true # read message text: needed for prefix commands and for reading the channel
+members = false
+presences = false
+
+[replies]
+# Plain-text commands, no Python needed. {author} mentions whoever asked, {prefix} is the prefix above.
+ping = "pong {author}"
+# Reserved: the answer to an unknown Command. {command} is what they typed after the prefix.
+fallback = "Sorry {author}, I don't know {prefix}{command}. Try {prefix}help"
+
+[mentions]
+as_prefix = true # "@Bot hello" works the same as "!!hello"
+# reply = "Hi {author}! Try {prefix}glossary" # sent whenever the bot is mentioned without a Command
